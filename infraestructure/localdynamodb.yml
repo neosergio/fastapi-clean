@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  TodoTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: TodoTable
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+Outputs:
+  TodoTableArn:
+    Description: "The ARN of the DynamoDB table"
+    Value: !GetAtt TodoTable.Arn
