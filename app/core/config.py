@@ -1,9 +1,10 @@
+from pydantic import SecretStr
 from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    AWS_ACCESS_KEY_ID: str
-    AWS_SECRET_ACCESS_KEY: str
+    AWS_ACCESS_KEY_ID: SecretStr
+    AWS_SECRET_ACCESS_KEY: SecretStr
     REGION_NAME: str
     DYNAMODB_TABLE: str
     ENDPOINT_URL: str
