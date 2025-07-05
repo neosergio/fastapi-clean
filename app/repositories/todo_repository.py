@@ -10,8 +10,8 @@ from app.schemas.todo import TodoCreate, TodoUpdate
 dynamodb = boto3.resource(
     'dynamodb',
     region_name=settings.REGION_NAME,
-    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
-    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+    aws_access_key_id=settings.AWS_ACCESS_KEY_ID.get_secret_value(),
+    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY.get_secret_value(),
     endpoint_url=settings.ENDPOINT_URL
 )
 table = dynamodb.Table(settings.DYNAMODB_TABLE)
